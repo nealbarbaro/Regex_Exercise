@@ -1,0 +1,47 @@
+1. Write a regular expression to match any email address. You can use this in the future to validate the format of email addresses in your Rails apps!
+2. Write a regular expression to match a URL.
+3. Think about a website you might make where people enter a username upon signing up. What characters are allowed? Write a regular expression to validate it.
+4. Gettysburg Address: Each sentence with the word 'nation' in it.
+5. Zip Codes CSV: Match groups for each zip code and related city.
+
+1. Email:
+\w+@\w+\.\w+
+
+    foo@bar.com
+    foo_bar@bar.com
+    fo3@bar.com
+    fo.com
+
+
+2. URL:
+^(http:\/\/)\w*\.+\w*\.?\w*\/*
+
+    http://wwww.reddit.com/
+    http://www.google.com/
+    http://google.com/
+    http://google.com
+    4http://google.com/
+    h3ttp://google.com/
+
+3. Username:
+(\w|0-9)+_username
+
+    jeff_username
+    Jeff_username
+    Sumeet_username
+    Sum33t_username
+    Sum-33t_username
+
+4. Gettysburg Address
+[A-Z][^.]*\w (\bnation\b)[^.]+\.
+
+
+Four score and seven years ago our fathers brought forth on this continent, a new nation, conceived in Liberty, and dedicated to the proposition that all men are created equal.
+
+Now we are engaged in a great civil war, testing whether that nation, or any nation so conceived and dedicated, can long endure. We are met on a great battle-field of that war. We have come to dedicate a portion of that field, as a final resting place for those who here gave their lives that that nation might live. It is altogether fitting and proper that we should do this.
+
+But, in a larger sense, we can not dedicate -- we can not consecrate -- we can not hallow -- this ground. The brave men, living and dead, who struggled here, have consecrated it, far above our poor power to add or detract. The world will little note, nor long remember what we say here, but it can never forget what they did here. It is for us the living, rather, to be dedicated here to the unfinished work which they who fought here have thus far so nobly advanced. It is rather for us to be here dedicated to the great task remaining before us -- that from these honored dead we take increased devotion to that cause for which they gave the last full measure of devotion -- that we here highly resolve that these dead shall not have died in vain -- that this nation, under God, shall have a new birth of freedom -- and that government of the people, by the people, for the people, shall not perish from the earth.
+
+5. Zip Codes .csv
+([0-9]{5})","STANDARD","(\w+)
+
